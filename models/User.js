@@ -1,5 +1,4 @@
 const { Schema, model, Types } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
 
 const UserSchema = new Schema(
   {
@@ -12,12 +11,10 @@ const UserSchema = new Schema(
     email: {
       type: String,
       unique: true,
-      validate: {
-        validator: function (v) {
-          return /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(v);
-        },
-        message: props => `${props.value} is not a valid email!`,
-      },
+      match: [
+        /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+        'not a valid email!',
+      ],
       required: [true, 'User email is required'],
     },
     thoughts: [
