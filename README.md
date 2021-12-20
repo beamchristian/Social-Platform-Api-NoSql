@@ -35,6 +35,7 @@ To start the server
 ## Table of Contents
 
 - [Video](#video)
+- [Installation](#installation)
 - [License](#license)
 - [Contributing](#contributing)
 
